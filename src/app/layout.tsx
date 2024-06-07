@@ -1,26 +1,13 @@
-import "@/styles/globals.css";
+import { gustavo, tartuffo } from "@/fonts/fonts";
+import "@/globals.css";
 
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { PropsWithChildren } from "react";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
-import { cn } from "@/lib/utils";
-
 import config from "@/config.json";
-
-const fontTartuffo = localFont({
-    src: "./fonts/Tartuffo.otf",
-    display: "swap",
-    variable: "--font-tartuffo",
-});
-const fontGustavo = localFont({
-    src: "./fonts/Gustavo.otf",
-    display: "swap",
-    variable: "--font-gustavo",
-});
 
 export const metadata: Metadata = {
     title: {
@@ -38,15 +25,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang="fr" suppressHydrationWarning>
             <head />
-            <body
-                className={cn(
-                    "font-gustavo antialiased selection:bg-primary/30 scroll-smooth",
-                    fontTartuffo.variable,
-                    fontGustavo.variable,
-                )}
-            >
+            <body className={gustavo.variable + " " + tartuffo.variable + " font-gustavo"}>
                 <Header />
-                <main className="flex-1">{children}</main>
+                <main className="antialiased selection:bg-fg-3">{children}</main>
                 <Footer />
             </body>
         </html>

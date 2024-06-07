@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { Button } from "@/components/button";
 import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
 
 export function Header({ className }: { className?: string }) {
     const [visible, setVisible] = useState<boolean>(false);
@@ -26,11 +26,13 @@ export function Header({ className }: { className?: string }) {
                 <div className="flex items-center gap-5 lg:gap-16">
                     <div className="flex items-center">
                         <Link href="/" className="flex items-center gap-2">
-                            <Icons.tototte className="text-foreground" />
+                            <Icons.tototte className="text-foreground -ml-2" />
                         </Link>
                     </div>
                 </div>
-                <div>{visible && <h1 className="font-tartuffo text-xl">the french tototte</h1>}</div>
+                <div className="justify-center flex items-center">
+                    {visible && <h1 className="font-tartuffo text-xl">the french tototte</h1>}
+                </div>
                 <div className="flex items-center">
                     <nav className="flex space-x-2">
                         <Button>Acheter</Button>
