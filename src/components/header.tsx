@@ -21,15 +21,15 @@ export function Header({ scrollRef }: { scrollRef: MutableRefObject<HTMLDivEleme
     }, []);
 
     return (
-        <header className="fixed w-full z-50 bg-gradient-to-b from-bg-2 to-transparent select-none pt-9">
+        <header className="fixed z-50 w-full select-none bg-gradient-to-b from-bg-2 to-transparent pt-9">
             <div className="container flex justify-between">
                 <Link href="/" className="flex items-center gap-2">
                     <Icons.tototte className="text-fg-1" />
                 </Link>
-                <div className="flex justify-center items-center">
-                    <h2 className="font-tartuffo text-fg-2 text-2xl">the french tototte</h2>
+                <div className="hidden items-center justify-center md:flex">
+                    <h2 className="font-tartuffo text-2xl text-fg-2">the french tototte</h2>
                 </div>
-                <div className="flex justify-center items-center">
+                <div className="flex items-center justify-center">
                     <Button
                         onClick={() => {
                             if (scrollRef.current) {
