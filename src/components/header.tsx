@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { MutableRefObject, useEffect, useState } from "react";
 
 import { Button } from "@/components/button";
 import { Icons } from "@/components/icons";
 
-export function Header({ className }: { className?: string }) {
+export function Header({ scrollRef }: { scrollRef: MutableRefObject<HTMLDivElement | null> }) {
     const [visible, setVisible] = useState<boolean>(false);
 
     useEffect(() => {
@@ -21,22 +21,24 @@ export function Header({ className }: { className?: string }) {
     }, []);
 
     return (
-        <header className="fixed w-full z-50 select-none py-9">
-            <div className="container flex items-center justify-between">
-                <div className="flex items-center gap-5 lg:gap-16">
-                    <div className="flex items-center">
-                        <Link href="/" className="flex items-center gap-2">
-                            <Icons.tototte className="text-foreground -ml-2" />
-                        </Link>
-                    </div>
+        <header className="fixed w-full z-50 bg-gradient-to-b from-bg-2 to-transparent select-none pt-9">
+            <div className="container flex justify-between">
+                <Link href="/" className="flex items-center gap-2">
+                    <Icons.tototte className="text-fg-1" />
+                </Link>
+                <div className="flex justify-center items-center">
+                    <h2 className="font-tartuffo text-fg-2 text-2xl">the french tototte</h2>
                 </div>
-                <div className="justify-center flex items-center">
-                    {visible && <h1 className="font-tartuffo text-xl">the french tototte</h1>}
-                </div>
-                <div className="flex items-center">
-                    <nav className="flex space-x-2">
-                        <Button>Acheter</Button>
-                    </nav>
+                <div className="flex justify-center items-center">
+                    <Button
+                        onClick={() => {
+                            if (scrollRef.current) {
+                                scrollRef.current.scrollIntoView({ behavior: "smooth" });
+                            }
+                        }}
+                    >
+                        Acheter
+                    </Button>
                 </div>
             </div>
         </header>

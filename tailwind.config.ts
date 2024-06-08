@@ -9,10 +9,7 @@ const config = {
             screens: { "2xl": "1520px" },
         },
         extend: {
-            fontFamily: {
-                tartuffo: ["var(--font-tartuffo)"],
-                gustavo: ["var(--font-gustavo)"],
-            },
+            fontFamily: { tartuffo: ["var(--font-tartuffo)"] },
             colors: {
                 "fg-1": "#30171B",
                 "fg-2": "#5D4043",

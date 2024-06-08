@@ -1,7 +1,6 @@
 import localFont from "next/font/local";
 
 export const gustavo = localFont({
-    variable: "--font-gustavo",
     src: [
         {
             path: "./gustavo/regular.woff",

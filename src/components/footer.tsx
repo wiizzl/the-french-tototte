@@ -7,14 +7,14 @@ import Image from "next/image";
 export function Footer() {
     const socials = [
         { href: "https://instagram.com/bastiii/", icons: <Icons.instagram className="text-fg-3" /> },
-        { href: "https://youtube.com/c/BastiUI", icons: <Icons.youtube className="text-fg-3" /> },
+        { href: "https://www.youtube.com/watch?v=FVEqE47pOLw", icons: <Icons.youtube className="text-fg-3" /> },
         { href: "https://threads.net/@bastiii", icons: <Icons.threads className="text-fg-3" /> },
         { href: "https://fr.linkedin.com/in/bastienmarecaux", icons: <Icons.linkedin className="text-fg-3" /> },
         { href: "https://x.com/BastiUi", icons: <Icons.twitter className="text-fg-3" /> },
     ];
 
     return (
-        <footer className="select-none bg-fg-1 py-16 relative">
+        <footer className="bg-fg-1 py-16 relative">
             <div className="container flex flex-col gap-32 md:gap-96 lg:gap-0">
                 <div className="flex justify-end">
                     <div className="flex flex-col gap-6 lg:max-w-md">
@@ -112,7 +112,7 @@ export function Footer() {
                 </div>
                 <Image
                     src="/image/logo.svg"
-                    alt=""
+                    alt="Logo du footer"
                     width={625}
                     height={625}
                     className="absolute bottom-0 transform -translate-x-1/4 lg:-translate-x-2/4 opacity-50"
