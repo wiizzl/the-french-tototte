@@ -20,6 +20,16 @@ const config = {
                 "bg-blue": "#EFF1FD",
                 "bg-trans": "#FFFFFF50",
             },
+            keyframes: {
+                mynthos: {
+                    "0%": { opacity: "0", transform: "translate(-100%, -100%)" },
+                    "50%": { opacity: "1" },
+                    "100%": { opacity: "0", transform: "translate(100%, 100%)" },
+                },
+            },
+            animation: {
+                mynthos: "mynthos 3s infinite",
+            },
         },
     },
 } satisfies Config;

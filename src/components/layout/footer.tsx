@@ -1,10 +1,16 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@/components/button";
-import { Icons } from "@/components/icons";
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/ui/icons";
+
+import { useCartStore } from "@/context/pack";
 
 export function Footer() {
+    const { content, selection, ornement, finition, ornements, finitions } = useCartStore();
+
     const socials = [
         { href: "https://instagram.com/bastiii/", icons: <Icons.instagram className="text-fg-3" /> },
         { href: "https://www.youtube.com/watch?v=FVEqE47pOLw", icons: <Icons.youtube className="text-fg-3" /> },
@@ -13,27 +19,41 @@ export function Footer() {
         { href: "https://x.com/BastiUi", icons: <Icons.twitter className="text-fg-3" /> },
     ];
 
+    const getTotalPrice = () => {
+        let totalPrice = 99.0;
+
+        if (content[selection].price !== "Offert") {
+            totalPrice += parseFloat(content[selection].price.replace(",", "."));
+        }
+
+        return totalPrice;
+    };
+
     return (
         <footer className="relative bg-fg-1 py-16">
             <div className="container flex flex-col gap-32 md:gap-96 lg:gap-0">
                 <div className="flex justify-end">
                     <div className="flex flex-col gap-6 lg:max-w-md">
                         <h2 className="font-tartuffo text-4xl text-bg-1">votre panier est prêt</h2>
-                        <p className="text-lg text-fg-3">Récapitulatif de votre commande</p>
+                        <p className="text-fg-3">Récapitulatif de votre commande</p>
                         <div className="flex flex-col gap-4">
                             <div className="flex justify-between">
                                 <div>
                                     <p className="text-sm text-bg-3">1 &times; thefrenchtototte</p>
                                     <div className="ml-3">
-                                        <p className="text-sm text-bg-3">+ Finition argent</p>
-                                        <p className="text-sm text-bg-3">+ Ornement obsidiennes</p>
+                                        <p className="text-sm text-bg-3">
+                                            + Finition {finitions[finition].title.toLocaleLowerCase()}
+                                        </p>
+                                        <p className="text-sm text-bg-3">
+                                            + Ornement {ornements[ornement].title.toLocaleLowerCase()}
+                                        </p>
                                     </div>
                                 </div>
                                 <p className="text-sm text-bg-3">99,00 &euro;</p>
                             </div>
                             <div className="flex justify-between">
-                                <p className="text-sm text-bg-3">1 &times; Pack Suçoteur Pro</p>
-                                <p className="text-sm text-bg-3">49,00 &euro;</p>
+                                <p className="text-sm text-bg-3">1 &times; {content[selection].title}</p>
+                                <p className="text-sm text-bg-3">{content[selection].price}</p>
                             </div>
                             <div className="flex justify-between">
                                 <p className="text-sm text-bg-3">Livraison</p>
@@ -41,7 +61,7 @@ export function Footer() {
                             </div>
                             <div className="flex justify-between">
                                 <p className="text-sm text-bg-3">Prix</p>
-                                <p className="text-sm text-bg-3">128,00 &euro;</p>
+                                <p className="text-sm text-bg-3">{getTotalPrice()},00 &euro;</p>
                             </div>
                         </div>
                         <div className="flex flex-col gap-3">
@@ -63,7 +83,7 @@ export function Footer() {
                             </div>
                         </div>
                         <div className="flex flex-col gap-3">
-                            <Button>Ajouter au panier</Button>
+                            <Button onClick={() => alert("Sérieusement !?")}>Ajouter au panier</Button>
                             <p className="text-xs/3 text-fg-3">
                                 <span className="font-tartuffo">the french tototte</span> est couverte par une garantie limitée
                                 contre les défauts de fabrication pour une période de 2 mois à compter de la date d'achat. Cette
@@ -115,7 +135,7 @@ export function Footer() {
                     alt="Logo du footer"
                     width={625}
                     height={625}
-                    className="absolute bottom-0 -translate-x-1/4 opacity-50 lg:-translate-x-2/4"
+                    className="absolute bottom-0 w-auto -translate-x-1/4 opacity-50 lg:-translate-x-2/4"
                 />
             </div>
         </footer>

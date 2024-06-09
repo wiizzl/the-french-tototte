@@ -5,12 +5,14 @@ import Link from "next/link";
 import { useRef } from "react";
 
 import { Bento } from "@/components/bento";
-import { ButtonOutline, ButtonRef } from "@/components/button";
-import { Flag } from "@/components/flag";
-import { Header } from "@/components/header";
-import { Icons } from "@/components/icons";
-import { MiddleLine } from "@/components/line";
+import { Customisation } from "@/components/customisation";
+import { Header } from "@/components/layout/header";
 import { Pods } from "@/components/pods";
+import { Testimonials } from "@/components/testimonials";
+import { ButtonOutline, ButtonRef } from "@/components/ui/button";
+import { Flag } from "@/components/ui/flag";
+import { Icons } from "@/components/ui/icons";
+import { MiddleLine } from "@/components/ui/line";
 
 export default function Home() {
     const bentoRef = useRef<HTMLDivElement | null>(null);
@@ -20,7 +22,7 @@ export default function Home() {
     return (
         <>
             <Header scrollRef={customRef} />
-            <section className="bg-gradient-to-b from-transparent to-bg-2 to-85%">
+            <section className="bg-gradient-to-b from-transparent to-bg-2 to-80% pb-52">
                 <div className="flex h-screen items-end justify-center overflow-hidden">
                     <div className="flex flex-col gap-8 pb-10">
                         <div className="flex flex-col items-center justify-center gap-2">
@@ -30,10 +32,12 @@ export default function Home() {
                             <Flag />
                         </div>
                         <div className="flex flex-col items-center gap-10">
-                            <h1 className="text-center font-tartuffo text-6xl text-fg-2">
-                                pour ceux qui osent <br />
-                                être différents
-                            </h1>
+                            <div className="relative">
+                                <h1 className="text-center font-tartuffo text-6xl tracking-tight text-fg-2">
+                                    pour ceux qui osent <br />
+                                    être différents
+                                </h1>
+                            </div>
                             <ButtonRef
                                 onClick={() => {
                                     if (bentoRef.current) {
@@ -49,12 +53,12 @@ export default function Home() {
                 </div>
                 <MiddleLine />
             </section>
-            <section ref={bentoRef} className="bg-bg-2 pt-52">
+            <section ref={bentoRef} className="bg-bg-2 pb-32">
                 <Bento />
             </section>
-            <section className="relative bg-bg-2">
+            <section className="relative bg-bg-2 pb-52">
                 <div className="flex items-center justify-center">
-                    <Image src="/video/plugandtote.webp" alt="Technologie Plug'n'tote" width={550} height={550} />
+                    <Image src="/video/plugandtote.webp" alt="Technologie Plug'n'tote" width={550} height={550} unoptimized />
                 </div>
                 {/* <div className="absolute top-60 flex min-h-screen w-full bg-gradient-to-b from-bg-3 to-bg-2 to-30%" /> */}
                 <div className="container flex max-w-[700px] flex-col gap-10">
@@ -88,7 +92,7 @@ export default function Home() {
                     <MiddleLine />
                 </div>
             </section>
-            <section ref={podsRef} className="bg-bg-2">
+            <section ref={podsRef} className="bg-bg-2 pb-60">
                 <Pods />
             </section>
             <section className="group bg-bg-2">
@@ -110,7 +114,7 @@ export default function Home() {
                         alt="Technologie Plug'n'tote"
                         width={700}
                         height={700}
-                        className="-rotate-45 transition duration-1000 group-hover:-rotate-12"
+                        className="w-auto -rotate-45 scale-90 transition duration-1000 group-hover:-rotate-12 md:scale-100"
                     />
                 </div>
                 <div className="container flex max-w-[700px] justify-end">
@@ -129,7 +133,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-gradient-to-b from-bg-2 via-bg-3 to-bg-2">
+            <section className="bg-gradient-to-b from-bg-2 via-bg-3 to-bg-2 pb-52">
                 <div className="flex justify-center overflow-hidden">
                     <video
                         src="/video/spotify.webm"
@@ -159,9 +163,24 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-bg-2">
+            <section className="bg-bg-2 pb-52">
                 <div className="flex items-center justify-center gap-20">
-                    <Image src="/image/mynthos.png" alt="Le jus de Mynthos" width={250} height={250} />
+                    <div className="relative overflow-hidden">
+                        <Image
+                            src="/image/mynthos/mynthos.png"
+                            alt="Le jus de Mynthos"
+                            width={250}
+                            height={250}
+                            className="w-auto"
+                        />
+                        <Image
+                            src="/image/mynthos/light.png"
+                            alt=""
+                            width={250}
+                            height={250}
+                            className="absolute top-0 animate-mynthos rounded-full mix-blend-overlay"
+                        />
+                    </div>
                     <div className="flex max-w-xs flex-col gap-8">
                         <div className="flex flex-col gap-2">
                             <h2 className="font-tartuffo text-6xl">
@@ -182,21 +201,26 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-gradient-to-b from-bg-2 to-bg-blue">
-                <div className="flex justify-center">
-                    <div className="flex flex-col gap-5">
-                        <h2 className="text-center font-tartuffo text-6xl text-fg-1">
-                            ils ont suçoté, <br />
-                            ils ont adoré
-                        </h2>
-                        <p className="max-w-md text-center text-fg-2">
-                            Nos totottes sont utilisées par les plus grands de ce monde et si vous voulez mon avis, ce n'est pas
-                            un hasard.
-                        </p>
+            <section className="bg-gradient-to-b from-bg-2 to-bg-blue pb-52">
+                <div className="flex flex-col gap-20">
+                    <div className="flex justify-center">
+                        <div className="flex flex-col gap-5">
+                            <h2 className="text-center font-tartuffo text-6xl text-fg-1">
+                                ils ont suçoté, <br />
+                                ils ont adoré
+                            </h2>
+                            <p className="max-w-md text-center text-fg-2">
+                                Nos totottes sont utilisées par les plus grands de ce monde et si vous voulez mon avis, ce n'est
+                                pas un hasard.
+                            </p>
+                        </div>
                     </div>
+                    <Testimonials />
                 </div>
             </section>
-            <section ref={customRef} className="bg-bg-blue"></section>
+            <section ref={customRef} className="bg-bg-blue pb-20">
+                <Customisation />
+            </section>
         </>
     );
 }

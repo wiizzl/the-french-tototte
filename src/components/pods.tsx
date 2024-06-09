@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { NumberTicker } from "@/components/ticker";
+import { NumberTicker } from "@/components/ui/ticker";
 
 // CREDIT: Stéphane Woutiers - https://github.com/Doelia/the-french-tototte/blob/main/src/app/parts/Pods.tsx
 // his code helped me see an approach to making the arrows for speech bubbles
@@ -113,26 +113,26 @@ function Pod({ title, description, tooltipPosition, arrowPosition }: PodProps) {
                 src="/image/pods/shadow.png"
                 width={60}
                 height={1}
-                className="absolute bottom-[2px] scale-x-50 blur-[2px] transition duration-300 group-hover:scale-x-90"
+                className="absolute bottom-[2px] w-auto scale-x-50 blur-[2px] transition duration-300 group-hover:scale-x-90"
                 alt="Ombre du pod"
             />
             <Image
                 src={`/image/pods/${title.split(" ")[0]}.png`}
                 width={60}
                 height={1}
-                className={"relative transition duration-300 group-hover:-translate-y-12"}
+                className={"relative w-auto transition duration-300 group-hover:-translate-y-12"}
                 alt="Image du pod"
             />
             <div
                 className={`absolute w-[300px] translate-y-48 scale-0 border border-fg-1 bg-bg-1 p-5 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 ${tooltipPosition}`}
             >
-                <Image
+                {/* <Image
                     src={"/image/pods/indicator.png"}
                     width={22}
                     height={22}
                     className={`absolute bottom-[-34px] ${arrowPosition}`}
                     alt="Indicateur du pod"
-                />
+                /> */}
                 <div className="flex flex-col gap-3">
                     <h2 className="text-xl text-fg-1">{title}</h2>
                     <p className="text-fg-3">{description}</p>

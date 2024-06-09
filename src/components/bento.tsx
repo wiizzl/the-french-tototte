@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Flag } from "@/components/flag";
+import { Flag } from "@/components/ui/flag";
 
 export function Bento() {
     const bentoClass = {

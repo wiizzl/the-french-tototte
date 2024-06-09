@@ -4,7 +4,7 @@ import "@/style.css";
 import type { Metadata } from "next";
 import { PropsWithChildren } from "react";
 
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/layout/footer";
 
 import config from "@/config.json";
 
