@@ -1,15 +1,15 @@
 {
-    "author": [
-        { "name": "wiizz", "url": "https://github.com/wiizzl" },
-        { "name": "Tera Silver", "url": "https://x.com/terasilver" },
-        { "name": "Aurélien Thomas", "url": "https://x.com/Aurelienthms" },
-        { "name": "Baloprisonnier", "url": "https://x.com/baloprisonnier" },
-        { "name": "Lunath", "url": "https://x.com/lunath__" },
-        { "name": "Illusion", "url": "https://instagram.com/illusion_graphisme/" }
-    ],
-    "sugar": {
-        "title": "The French Tototte",
-        "description": "The French Tototte, la nouvelle façon d'être différent.",
-        "keywords": ["French", "Tototte"]
-    }
+  "author": [
+    { "name": "wiizz", "url": "https://github.com/wiizzl" },
+    { "name": "Tera Silver", "url": "https://x.com/terasilver" },
+    { "name": "Aurélien Thomas", "url": "https://x.com/Aurelienthms" },
+    { "name": "Baloprisonnier", "url": "https://x.com/baloprisonnier" },
+    { "name": "Lunath", "url": "https://x.com/lunath__" },
+    { "name": "Illusion", "url": "https://instagram.com/illusion_graphisme/" }
+  ],
+  "sugar": {
+    "title": "The French Tototte",
+    "description": "The French Tototte, la nouvelle façon d'être différent.",
+    "keywords": ["French", "Tototte"]
+  }
 }
